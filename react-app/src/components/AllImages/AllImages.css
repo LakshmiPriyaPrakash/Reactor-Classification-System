@@ -1,0 +1,94 @@
+
+img {
+    height: 500px;
+    width: 500px;
+}
+
+.wrapper-cntr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.change-bar {
+    background-color: lightgray;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+button {
+    margin: 20px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+select {
+    margin: 20px;
+}
+
+.img-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+.paginationBttns a:hover {
+    color: white;
+    background-color: blue;
+}
+
+.paginationActive a {
+    color: white;
+    background-color: blue;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.link {
+    margin: 20px;
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.link:hover {
+    background-color: lightblue;
+    cursor: pointer;
+
+}
