@@ -66,4 +66,4 @@ To start the servers anytime after the requirements are installed:
 
 `npm start`
 
-Watch app demo video at:
+Watch app demo video at: https://www.loom.com/share/fa7f1463e2a248b0933cebe8b887c5cc
