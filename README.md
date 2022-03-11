@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Getting Started Reactor Classification App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After cloning the repo to your system, follow the below steps to install requirements and start the app.
 
-## Available Scripts
+## BACKEND: flask-server
 
-In the project directory, you can run:
+Open a terminal and `cd` into flask-server directory
 
-### `npm start`
+**STEP 1:** create user, password, and database in PostgreSQL
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*Example:*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`CREATE USER reac_user WITH PASSWORD 'password' CREATEDB;`
 
-### `npm test`
+`CREATE DATABASE reactor WITH OWNER reac_user;`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Executing the above two commands in psql on the command line would have created the user, password, and database.
 
-### `npm run build`
+**STEP 2:** create `.env` file
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- cd into flask-server directory
+- create a `.env` file in the root of flask-server directory
+- copy contents of `.env.example` file to `.env` file
+- change `DATABASE_URL` to the username, password, and database you create in PostgreSQL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*using example from step 1:*
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`DATABASE_URL=postgresql://reac_user:password@localhost/reactor`
 
-### `npm run eject`
+**STEP 3:** In terminal, enter commands:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`pipenv install -r requirements.txt`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`pipenv shell`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`flask db upgrade`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`flask seed all`
 
-## Learn More
+**STEP 4:** once the tables have been populated, enter the command `flask run` to start server.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Data from server is available at http://localhost:5000/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## FRONTEND: react-app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**STEP 1:** open another terminal and `cd` into react-app directory
 
-### Analyzing the Bundle Size
+**STEP 2:** in terminal enter command `npm install` to install requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**STEP 3:** start the server by entering command `npm start`
 
-### Making a Progressive Web App
+The application would run at http://localhost:3000/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You can classify the reactor images as foaming or non-foaming and the classification will be saved in the database.
 
-### Advanced Configuration
+To start the servers anytime after the requirements are installed:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**flask-server:**
 
-### Deployment
+`pipenv shell`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+`flask run`
 
-### `npm run build` fails to minify
+**react-app:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm start`
+
+Watch app demo video at:

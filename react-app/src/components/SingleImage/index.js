@@ -7,12 +7,14 @@ function SingleImage({ image, imageIDS, setImageIDS, cancel }) {
     const [imageId, setImageId] = useState();
 
     useEffect(() => {
-        if(selected && !imageIDS.includes(imageId)) {
-            let newIDS = [...imageIDS, imageId];
-            setImageIDS(newIDS);
-        } else {
-            let newIDS = imageIDS.filter(id => id !== imageId);
-            setImageIDS(newIDS);
+        if(imageId) {
+            if(selected && !imageIDS.includes(imageId)) {
+                let newIDS = [...imageIDS, imageId];
+                setImageIDS(newIDS);
+            } else {
+                let newIDS = imageIDS.filter(id => id !== imageId);
+                setImageIDS(newIDS);
+            }
         }
     }, [imageId, selected, setImageIDS]);
 
